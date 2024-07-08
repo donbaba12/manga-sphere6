@@ -1,0 +1,38 @@
+/* src/MyList.css */
+.watchlist-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.watchlist-container h1 {
+    text-align: center;
+}
+
+.watchlist-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.watchlist-container li {
+    background-color: #f8f8f8;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.watchlist-container button {
+    padding: 5px 10px;
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.watchlist-container button:hover {
+    background-color: #ff0000;
+}

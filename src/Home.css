@@ -1,0 +1,57 @@
+/* Home.css */
+@import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Rubik+Glitch+Pop&display=swap');
+/* Home.css */
+
+.home {
+  background-image: url('./gojo.jpg'); /* Update the path to your image */
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+}
+
+.overlay2 {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  text-align: center;
+  color: #00d8ff;
+}
+
+.headline, .subheadline, .title {
+  margin: 0.5rem 0;
+}
+
+.headline {
+  font-size: 2rem;
+}
+
+.subheadline {
+  font-size: 1.5rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-family: "Rubik Glitch Pop", system-ui;
+}
+
+.discover-button {
+  background-color: #00d8ff;
+  color: #000;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 1rem;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.discover-button:hover {
+  background-color: #00a3cc;
+}
