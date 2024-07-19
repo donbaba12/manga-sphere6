@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/manga-sphere6/static/css/main.5bd21572.css",
+    "main.js": "/manga-sphere6/static/js/main.e0fe922b.js",
+    "static/media/JJK.png": "/manga-sphere6/static/media/JJK.0b62bface09471d6ed3f.png",
+    "static/media/CG.png": "/manga-sphere6/static/media/CG.68f9646d36ad713a8343.png",
+    "static/media/MHA.png": "/manga-sphere6/static/media/MHA.75e4bd90eaac7c991775.png",
+    "static/media/B.png": "/manga-sphere6/static/media/B.8b36afa3413c037b2840.png",
+    "static/media/one-piece.png": "/manga-sphere6/static/media/one-piece.c99fc4e67240bcfcb781.png",
+    "static/media/OPM.png": "/manga-sphere6/static/media/OPM.718f1b9f1c0539bda0d2.png",
+    "static/media/N.png": "/manga-sphere6/static/media/N.693f2a605c355b5392a7.png",
+    "static/media/TG.png": "/manga-sphere6/static/media/TG.4c6e84eec2abde95889a.png",
+    "static/media/snk.png": "/manga-sphere6/static/media/snk.22eff7d73fa97d331aa1.png",
+    "static/media/DN.png": "/manga-sphere6/static/media/DN.885843b2164d64e69a65.png",
+    "static/media/SA.png": "/manga-sphere6/static/media/SA.c8175adab1aa988a07a0.png",
+    "static/media/FM.png": "/manga-sphere6/static/media/FM.3293aaa9524a677af32e.png",
+    "static/media/demon-slayer.png": "/manga-sphere6/static/media/demon-slayer.c7445d274ca7b6c5c91a.png",
+    "static/media/gojo.jpg": "/manga-sphere6/static/media/gojo.4d5a2944c5be209c59ce.jpg",
+    "index.html": "/manga-sphere6/index.html",
+    "main.5bd21572.css.map": "/manga-sphere6/static/css/main.5bd21572.css.map",
+    "main.e0fe922b.js.map": "/manga-sphere6/static/js/main.e0fe922b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5bd21572.css",
+    "static/js/main.e0fe922b.js"
+  ]
+}
