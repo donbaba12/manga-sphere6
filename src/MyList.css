@@ -7,6 +7,7 @@
 
 .watchlist-container h1 {
     text-align: center;
+    font-size: 40px;
 }
 
 .watchlist-container ul {
@@ -26,7 +27,7 @@
 
 .watchlist-container button {
     padding: 5px 10px;
-    background-color: #ff4c4c;
+    background-color: #61dafb;
     color: white;
     border: none;
     border-radius: 5px;

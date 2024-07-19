@@ -10,9 +10,9 @@
 /* Header styling for the page */
 .trends-container h1 {
     text-align: center;
-    color: #333;
-    font-size: 24px;
-    padding: 20px 0;
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+    
 }
 
 /* Yearly sections containing manga lists */
@@ -26,7 +26,7 @@
 
 /* Styling for the headers of each year section */
 .year-section h2 {
-    color: #007bff;
+    color: #61dafb;
     font-size: 20px;
     margin-bottom: 15px;
 }
@@ -41,6 +41,7 @@
 
 /* Individual manga card styling */
 .trends-manga-card {
+    position: relative;
     flex: 1 1 300px; /* Allows for responsive resizing but bases at 300px */
     background-color: #fff;
     border-radius: 5px;
@@ -49,23 +50,38 @@
     display: flex;
     flex-direction: column;
     align-items: center; /* Centers content horizontally */
-    padding: 15px;
-    
+    padding: 0;
+    transition: transform 0.3s;
+}
+
+/* Content within each manga card */
+.trends-manga-card-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Styling for images in manga cards */
-.trends-manga-card img {
-    width: 100%; 
-    height: auto; 
-    margin-bottom: 10px;
-    background-image: url('./DS.png');
+.trends-manga-card-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px 8px 0 0;
 }
 
 /* Header within each manga card for the title */
-.trends-manga-card h3 {
-    font-size: 18px;
-    color: #000;
-    margin-bottom: 5px;
+.trends-manga-title {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 0;
+    font-size: 1em;
 }
 
 /* Paragraph styling for descriptions within cards */
@@ -73,4 +89,64 @@
     font-size: 14px;
     color: #666;
     text-align: center;
+}
+
+.trends-manga-card:hover {
+    transform: scale(1.05);
+}
+
+.trends-manga-hover-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.trends-manga-card:hover .trends-manga-hover-info {
+    opacity: 1;
+}
+
+/* Specific styles for each manga */
+.trends-manga-card.demon-slayer {
+    background-image: url('./demon-slayer.png');
+}
+
+.trends-manga-card.jujutsu-kaisen {
+    background-image: url('./JJK.png');
+}
+
+.trends-manga-card.code-geass {
+    background-image: url('./CG.png');
+}
+
+.trends-manga-card.death-note {
+    background-image: url('./DN.png');
+}
+
+.trends-manga-card.fm {
+    background-image: url('./FM.png');
+}
+.trends-manga-card.naruto {
+    background-image: url('./N.png');
+}
+.trends-manga-card.one-punch {
+    background-image: url('./OPM.png');
+}
+.trends-manga-card.b {
+    background-image: url('./B.png');
+}
+.trends-manga-card.one-piece {
+    background-image: url('./one-piece.png');
 }

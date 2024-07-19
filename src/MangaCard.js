@@ -1,36 +1,37 @@
 import React, { useState } from 'react';
-import './MangaCard.css'; // Ensure to create a CSS file for styling
+import './MangaCard.css'; 
 import Modal from 'react-modal';
+import { useTranslation } from 'react-i18next';
 import { useWatchlist } from './WatchlistContext';
+
 function MangaCard({ manga }) {
-    const [showBubble, setShowBubble] = useState(false);
+    const { t } = useTranslation();
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const { addToWatchlist } = useWatchlist(); 
 
-    const toggleBubble = () => setShowBubble(!showBubble);
     const openModal = (event) => {
-        event.stopPropagation();  // This stops the click event from closing the info bubble
+        event.stopPropagation(); 
         setModalIsOpen(true);
     };
 
     const closeModal = () => {
         setModalIsOpen(false);
     };
+
     const handleAddToList = () => {
         addToWatchlist(manga);
-        alert(`${manga.title} added to your watchlist!`);
+        alert(`${manga.title} ${t("added to your watchlist!")}`);
     };
 
     return (
-        <div className="manga-card" onClick={toggleBubble}>
-            <img src={manga.image}  />
-            <h3>{manga.title}</h3>
-            {showBubble && (
-                <div className="info-bubble">
-                    <p>{manga.episodes} episodes</p>
-                    <p>Type: {manga.type}</p>
-                    <button onClick={openModal}>Watch Trailer</button>
-                    <button onClick={handleAddToList}>Add to List</button>
+        <div className={`manga-card ${manga.className}`} role="gridcell">
+            <div className="manga-card-content">
+                <img src={manga.image} alt={`${manga.title} cover`} className="manga-image" />
+                <div className="manga-hover-info">
+                    <p>{manga.episodes} {t("episodes")}</p>
+                    <p>{t("Type")}: {manga.type}</p>
+                    <button onClick={openModal}>{t("Watch Trailer")}</button>
+                    <button onClick={handleAddToList}>{t("Add to List")}</button>
                     <Modal
                         isOpen={modalIsOpen}
                         onRequestClose={closeModal}
@@ -41,16 +42,17 @@ function MangaCard({ manga }) {
                         <iframe
                             width="560"
                             height="315"
-                            src="https://www.youtube.com/embed/VQGCKyvzIM4"
-                            frameborder="0"
+                            src={manga.trailer}
+                            frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                            title="YouTube video player"
+                            allowFullScreen
+                            title={`${manga.title} Trailer`}
                         ></iframe>
-                        <button onClick={closeModal}>Close</button>
+                        <button onClick={closeModal}>{t("Close")}</button>
                     </Modal>
                 </div>
-            )}
+            </div>
+            <div className="manga-title">{manga.title}</div>
         </div>
     );
 }

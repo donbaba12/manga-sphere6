@@ -17,7 +17,7 @@ textarea {
 
 form button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #61dafb;
     color: white;
     border: none;
     border-radius: 5px;
@@ -33,6 +33,11 @@ form button:hover {
     padding: 20px;
     background-color: #f4f4f4;
 }
+.forum-container h1 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+}
 
 .add-comment {
     text-align: center;
@@ -41,12 +46,37 @@ form button:hover {
 
 .add-comment button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #61dafb;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+}
+.add-comment button .fa-plus {
+    margin-right: 8px;
+}
+.post-actions {
+    margin-top: 10px;
+}
+
+.post-actions button {
+    background: none;
+    border: none;
+    color: #61dafb;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+.field-required-message {
+    color: #555;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
 }
 
 .posts .post {
@@ -57,7 +87,7 @@ form button:hover {
     padding: 15px;
     background-color: white;
     border: 1px solid #ccc;
-    border-left: 5px solid #007bff;
+    border-left: 5px solid #61dafb;
 }
 
 .post-content h2 {

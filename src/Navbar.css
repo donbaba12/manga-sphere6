@@ -6,37 +6,64 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
-  }
-  
-  .navbar-title {
+}
+
+.navbar-title {
     color: rgb(0, 206, 221);
     margin: 0;
     font-size: 1.5rem;
     font-family: "Rubik Glitch Pop", system-ui;
-  }
-  
-  .navbar-links {
+}
+
+.navbar-links {
     list-style: none;
     display: flex;
     gap: 1rem;
     margin: 0;
     padding: 0;
-  }
-  
-  .navbar-item {
+    align-items: center; /* Ensure vertical alignment */
+}
+
+.navbar-item {
     list-style: none;
-  }
-  
-  .navbar-link {
+}
+
+.navbar-link {
     color: rgb(0, 206, 221);
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     transition: background-color 0.3s;
-  }
-  
-  .navbar-link:hover {
+    display: flex;
+    align-items: center; /* Ensure vertical alignment */
+    font-size: 1rem; /* Match the font size with the buttons */
+}
+
+.navbar-link:hover {
     background-color: #555;
-  }
-  
+}
+
+/* Styles for the language buttons */
+.language-buttons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center; /* Ensure vertical alignment */
+}
+
+.language-button {
+    background: none;
+    border: 1px solid rgb(0, 206, 221);
+    color: rgb(0, 206, 221);
+    font-size: 1rem; /* Match the font size with the links */
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center; /* Ensure vertical alignment */
+}
+
+.language-button:hover {
+    background-color: rgb(0, 206, 221);
+    color: rgb(0, 0, 0);
+}

@@ -1,21 +1,29 @@
 import React, { useState } from 'react';
 import './Forum.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function Forum() {
+    const currentUser = 'Mangaka 1'; // This should come from your authentication system
     const [posts, setPosts] = useState([
         // Initial posts can be here
     ]);
     const [showForm, setShowForm] = useState(false);
+    const [editingPost, setEditingPost] = useState(null); // State for editing post
     const [newPost, setNewPost] = useState({
         title: '',
         description: '',
         author: ''
     });
+    const [error, setError] = useState('');
+
+    // Hard-coded posts
     const posts2 = [
-        { id: 1, title: "Demon Slayer", description: "Explore the adventures of Tanjiro and his quest.", author: "Mangaka 1", views: 12, answers: 8 },
-        { id: 2, title: "Jujutsu Kaisen", description: "Follow the journey of Itadori as he navigates the world of curses.", author: "Mangaka 2", views: 15, answers: 9 },
-        { id: 3, title: "One Piece", description: "Join Luffy and his crew in their search for the One Piece.", author: "Mangaka 3", views: 20, answers: 10 }
+        { id: 1, title: "Demon Slayer", description: "Explore the adventures of Tanjiro and his quest.", author: "Mangaka 1", views: 12, answers: 8, isHardCoded: true },
+        { id: 2, title: "Jujutsu Kaisen", description: "Follow the journey of Itadori as he navigates the world of curses.", author: "Mangaka 2", views: 15, answers: 9, isHardCoded: true },
+        { id: 3, title: "One Piece", description: "Join Luffy and his crew in their search for the One Piece.", author: "Mangaka 3", views: 20, answers: 10, isHardCoded: true }
     ];
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setNewPost(prev => ({ ...prev, [name]: value }));
@@ -23,15 +31,46 @@ function Forum() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setPosts(prevPosts => [...prevPosts, {...newPost, id: prevPosts.length + 1, views: 0, answers: 0}]);
-        setNewPost({ title: '', description: '', author: '' });  // Reset form
-        setShowForm(false);  // Hide form after submission
+
+        // Validate input
+        if (!newPost.title || !newPost.description || !newPost.author) {
+            setError('All fields are required!');
+            return;
+        }
+
+        setError(''); // Clear any previous error
+
+        if (editingPost) {
+            // Update existing post
+            setPosts(prevPosts => prevPosts.map(post =>
+                post.id === editingPost.id ? { ...newPost, id: post.id, views: post.views, answers: post.answers } : post
+            ));
+            setEditingPost(null); // Clear editing state
+        } else {
+            // Add new post
+            setPosts(prevPosts => [...prevPosts, { ...newPost, id: prevPosts.length + 1, views: 0, answers: 0, isHardCoded: false }]);
+        }
+        setNewPost({ title: '', description: '', author: '' }); // Reset form
+        setShowForm(false); // Hide form after submission
+    };
+
+    const handleEdit = (post) => {
+        setEditingPost(post);
+        setNewPost({ title: post.title, description: post.description, author: post.author });
+        setShowForm(true);
+    };
+
+    const handleDelete = (postId) => {
+        setPosts(prevPosts => prevPosts.filter(post => post.id !== postId));
     };
 
     return (
         <div className="forum-container">
+            <h1 className="page-title">Forum</h1> {/* Page Title */}
             <div className="add-comment">
-                <button onClick={() => setShowForm(!showForm)}>Add Comment +</button>
+                <button onClick={() => setShowForm(!showForm)}>
+                    <FontAwesomeIcon icon={faPlus} /> {editingPost ? 'Edit Comment' : 'Add Comment'}
+                </button>
             </div>
             <div className="posts">
                 {posts2.map(post => (
@@ -45,6 +84,16 @@ function Forum() {
                             <p>{post.views} views</p>
                             <p>{post.answers} answers</p>
                         </div>
+                        {!post.isHardCoded && (
+                            <div className="post-actions">
+                                <button onClick={() => handleEdit(post)}>
+                                    <FontAwesomeIcon icon={faEdit} /> Edit
+                                </button>
+                                <button onClick={() => handleDelete(post.id)}>
+                                    <FontAwesomeIcon icon={faTrash} /> Delete
+                                </button>
+                            </div>
+                        )}
                     </div>
                 ))}
             </div>
@@ -73,7 +122,9 @@ function Forum() {
                         onChange={handleInputChange}
                         required
                     />
-                    <button type="submit">Submit</button>
+                    {error && <p className="error-message">{error}</p>} {/* Display error message */}
+                    <button type="submit">{editingPost ? 'Update' : 'Submit'}</button>
+                    <p className="field-required-message">All fields are required.</p> {/* Instruction message */}
                 </form>
             )}
             <div className="posts">
@@ -88,6 +139,16 @@ function Forum() {
                             <p>{post.views} views</p>
                             <p>{post.answers} answers</p>
                         </div>
+                        {!post.isHardCoded && (
+                            <div className="post-actions">
+                                <button onClick={() => handleEdit(post)}>
+                                    <FontAwesomeIcon icon={faEdit} /> Edit
+                                </button>
+                                <button onClick={() => handleDelete(post.id)}>
+                                    <FontAwesomeIcon icon={faTrash} /> Delete
+                                </button>
+                            </div>
+                        )}
                     </div>
                 ))}
             </div>
@@ -96,4 +157,3 @@ function Forum() {
 }
 
 export default Forum;
-
