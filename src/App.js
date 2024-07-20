@@ -7,6 +7,7 @@ import AllMangas from './AllMangas';
 import Trends from './Trends'; 
 import Forum from './Forum'; 
 import MyList from './MyList';
+import FAQ from './FAQ'; 
 import { WatchlistProvider } from './WatchlistContext';
 import './i18n';
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/trends" element={<Trends />} />
             <Route path="/forum" element={<Forum />} />
             <Route path="/my-list" element={<MyList />} />
+            <Route path="/faq" element={<FAQ />} /> 
           </Routes>
         </div>
       </WatchlistProvider>

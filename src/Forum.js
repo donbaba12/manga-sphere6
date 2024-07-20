@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function Forum() {
-    const currentUser = 'Mangaka 1'; // This should come from your authentication system
+    const currentUser = 'Mangaka 1'; 
     const [posts, setPosts] = useState([
-        // Initial posts can be here
+        
     ]);
     const [showForm, setShowForm] = useState(false);
-    const [editingPost, setEditingPost] = useState(null); // State for editing post
+    const [editingPost, setEditingPost] = useState(null); 
     const [newPost, setNewPost] = useState({
         title: '',
         description: '',
@@ -17,7 +17,7 @@ function Forum() {
     });
     const [error, setError] = useState('');
 
-    // Hard-coded posts
+    
     const posts2 = [
         { id: 1, title: "Demon Slayer", description: "Explore the adventures of Tanjiro and his quest.", author: "Mangaka 1", views: 12, answers: 8, isHardCoded: true },
         { id: 2, title: "Jujutsu Kaisen", description: "Follow the journey of Itadori as he navigates the world of curses.", author: "Mangaka 2", views: 15, answers: 9, isHardCoded: true },
@@ -32,26 +32,26 @@ function Forum() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Validate input
+        
         if (!newPost.title || !newPost.description || !newPost.author) {
             setError('All fields are required!');
             return;
         }
 
-        setError(''); // Clear any previous error
+        setError(''); 
 
         if (editingPost) {
-            // Update existing post
+            
             setPosts(prevPosts => prevPosts.map(post =>
                 post.id === editingPost.id ? { ...newPost, id: post.id, views: post.views, answers: post.answers } : post
             ));
-            setEditingPost(null); // Clear editing state
+            setEditingPost(null); 
         } else {
-            // Add new post
+            
             setPosts(prevPosts => [...prevPosts, { ...newPost, id: prevPosts.length + 1, views: 0, answers: 0, isHardCoded: false }]);
         }
-        setNewPost({ title: '', description: '', author: '' }); // Reset form
-        setShowForm(false); // Hide form after submission
+        setNewPost({ title: '', description: '', author: '' }); 
+        setShowForm(false); 
     };
 
     const handleEdit = (post) => {
@@ -66,7 +66,7 @@ function Forum() {
 
     return (
         <div className="forum-container">
-            <h1 className="page-title">Forum</h1> {/* Page Title */}
+            <h1 className="page-title">Forum</h1> 
             <div className="add-comment">
                 <button onClick={() => setShowForm(!showForm)}>
                     <FontAwesomeIcon icon={faPlus} /> {editingPost ? 'Edit Comment' : 'Add Comment'}
@@ -122,9 +122,9 @@ function Forum() {
                         onChange={handleInputChange}
                         required
                     />
-                    {error && <p className="error-message">{error}</p>} {/* Display error message */}
+                    {error && <p className="error-message">{error}</p>} 
                     <button type="submit">{editingPost ? 'Update' : 'Submit'}</button>
-                    <p className="field-required-message">All fields are required.</p> {/* Instruction message */}
+                    <p className="field-required-message">All fields are required.</p> 
                 </form>
             )}
             <div className="posts">

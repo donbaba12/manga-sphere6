@@ -21,7 +21,7 @@
     gap: 1rem;
     margin: 0;
     padding: 0;
-    align-items: center; /* Ensure vertical alignment */
+    align-items: center; 
 }
 
 .navbar-item {
@@ -35,32 +35,32 @@
     border-radius: 4px;
     transition: background-color 0.3s;
     display: flex;
-    align-items: center; /* Ensure vertical alignment */
-    font-size: 1rem; /* Match the font size with the buttons */
+    align-items: center; 
+    font-size: 1rem; 
 }
 
 .navbar-link:hover {
     background-color: #555;
 }
 
-/* Styles for the language buttons */
+
 .language-buttons {
     display: flex;
     gap: 0.5rem;
-    align-items: center; /* Ensure vertical alignment */
+    align-items: center; 
 }
 
 .language-button {
     background: none;
     border: 1px solid rgb(0, 206, 221);
     color: rgb(0, 206, 221);
-    font-size: 1rem; /* Match the font size with the links */
+    font-size: 1rem; 
     cursor: pointer;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     transition: background-color 0.3s, color 0.3s;
     display: flex;
-    align-items: center; /* Ensure vertical alignment */
+    align-items: center; 
 }
 
 .language-button:hover {

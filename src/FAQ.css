@@ -1,0 +1,30 @@
+.faq-container {
+    padding: 20px;
+}
+
+.page-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.faq-item {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.faq-answer {
+    font-size: 1.2em;
+}

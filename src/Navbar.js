@@ -29,6 +29,9 @@ function Navbar() {
         <li className="navbar-item" role="none">
           <Link to="/forum" className="navbar-link" role="menuitem">{t('Forum')}</Link>
         </li>
+        <li className="navbar-item" role="none">
+          <Link to="/faq" className="navbar-link" role="menuitem">{t('FAQ')}</Link> 
+        </li>
         <li className="navbar-item language-buttons" role="none">
           <button onClick={() => changeLanguage('en')} className="language-button" aria-label="Switch to English">English</button>
           <button onClick={() => changeLanguage('fr')} className="language-button" aria-label="Switch to French">Français</button>

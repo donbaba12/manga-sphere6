@@ -48,10 +48,10 @@ i18n
     .use(initReactI18next)
     .init({
         resources,
-        lng: 'en', // default language
-        fallbackLng: 'en', // fallback language
+        lng: 'en', 
+        fallbackLng: 'en',
         interpolation: {
-            escapeValue: false // react already safes from xss
+            escapeValue: false 
         }
     });
 
